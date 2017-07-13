@@ -1,4 +1,3 @@
-import com.sun.awt.AWTUtilities;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -7,8 +6,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class MainActivity {
+
     public static void main(String[] args){
 
+        MainActivity x = new MainActivity();
+        x.gir();
+    }
+    private void gir(){
         JFrame j = new JFrame("Gir");
 
         JLabel gir = new JLabel(new ImageIcon("gir.gif"));
@@ -21,7 +25,11 @@ public class MainActivity {
         j.add(gir);
 
         j.setSize(240, 200);
-        j.setLocation(1, 570);
+        Double x = new Double(GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight() -
+                j.getHeight());
+        int height = x.intValue();
+
+        j.setLocation( 0, height);
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         j.setUndecorated(true);
         j.setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
@@ -29,5 +37,4 @@ public class MainActivity {
         // make the frame visible (activate the GUI frame)
         j.setVisible(true);
     }
-
 }
